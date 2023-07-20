@@ -1,17 +1,22 @@
-import WebsitesMapping, { Codeforces } from "../plugins/Websites.js";
-import LanguagesMapping, { CPP, Python } from "../plugins/Languages.js";
+import plugins from "../../scraper.plugins.js";
 
-//website mappings
+function loadPlugings(plugins) {
+    let res = {};
+    for (const Lang of plugins) {
+        res[Lang.uid] = Lang;
+    }
+    return res;
+}
 
 /**
- * @typedef {Codeforces} Sites
+ * @typedef {import("../Websites/Codeforces.js").default} Sites
  * @typedef {Object<string,Sites>} sitecollections
  * @type {sitecollections}
  * 
  * @exports Sites
 */
 class Website {
-    SITES = WebsitesMapping()
+    SITES = loadPlugings(plugins.website);
     /**
      * @returns {sitecollections}
     */
@@ -43,7 +48,7 @@ class Language {
     /**
      * @typedef {CPP|Python} Langs
     */
-    LANGS = LanguagesMapping()
+    LANGS = loadPlugings(plugins.language);
     verify(name) {
         if (this.LANGS[name] == undefined) throw `${name} is not a valid language!!!`;
     }

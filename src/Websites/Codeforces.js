@@ -1,6 +1,6 @@
 import { getProblemSiteUrl } from "../utils/Website.js";
 import uid from "../app/uid.js";
-export class Codeforces {
+export default class Codeforces {
     uid = uid.toUID("codeforces");
     INQUIRER_KEY = "c";
     INQUIRER_NAME = "Codeforces";
@@ -64,11 +64,4 @@ export class Codeforces {
         if (isNaN(pagenumber) && parseInt(pagenumber) < 0) throw `${pagenumber} is not a page number`;
         return getProblemSiteUrl(this.PROBLEM_LINK, this.TAG_SPECIFIER, this.TAG_SEPARATOR, this.URL_SPACE, ...s).replace('{{pagenumber}}', pagenumber);
     }
-}
-export default function () {
-    let res = {};
-    for (const Lang of [new Codeforces()]) {
-        res[Lang.uid] = Lang;
-    }
-    return res;
 }
