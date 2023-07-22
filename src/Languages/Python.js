@@ -1,3 +1,4 @@
+import fs from "fs";
 import uid from "../app/uid.js";
 export default class Python {
     uid = uid.toUID("python");
@@ -20,6 +21,9 @@ if __name__ == "__main__":
     MULTI_LINE_COMMENT = ['"""', '"""'];
     getBody() {
         return this.BOILERPLATE;
+    }
+    store(folderpath,content){
+        fs.writeFileSync(join(folderpath,"solver.py"),content,{encoding:"utf-8"});
     }
 }
 /**

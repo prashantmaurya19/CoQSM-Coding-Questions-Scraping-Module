@@ -9,9 +9,12 @@ import chalk from "chalk";
 import { processArguments } from "./app/cli_arguments.js";
 import scrapers from "./app/scrapers.js";
 import db from "./app/db.js";
+import { showFigletText } from "./utils/typos.js";
+import { WELCOME_STRING } from "./app/config.js";
 
 (
     async function () {
+        showFigletText(WELCOME_STRING,true);
         const args = await processArguments(); 
         const browser = await puppeteer.launch({
             headless: 'new',

@@ -5,11 +5,11 @@
 import fs from "fs";
 import pfs from "fs/promises";
 import { join } from "path";
-import { ROOTDIR, DB_FOLDER_PATH, DB_FILE_PATH } from "./config.js";
-import { mkdirSync, saveQuestion } from "../utils/fs.js";
+import { ROOTDIR, DB_FOLDER_NAME, DB_FILE_PATH } from "./config.js";
+import { mkdirSync, saveQuestion} from "../utils/fs.js";
 import { WEBSITES } from "./mapping.js";
 
-mkdirSync(join(ROOTDIR, DB_FOLDER_PATH), { recursive: true });
+mkdirSync(join(ROOTDIR, DB_FOLDER_NAME), { recursive: true });
 
 class Database {
     default = {}

@@ -1,10 +1,8 @@
 import { progress_spinner } from "./spinners.js";
 import { Page, Browser } from "puppeteer";
 import { args } from "./cli_arguments.js";
-import { log } from "../utils/typos.js";
 import chalk from "chalk";
 import { WEBSITES } from "./mapping.js";
-import { sleep, takeScreenshot, pritify , saveToTestdir} from "../utils/un.js";
 import db, { filterUniqueQuestions } from "./db.js";
 
 const handler = {
@@ -103,20 +101,9 @@ const target = {
             await p.goto(nextlink.link);
         } while (questionsarray.length<args.no_of_questions);
         
-        await saveToTestdir('list of questions.json', JSON.stringify(questionsarray));
-
         for(let question in questionsarray){
-            // await takeScreenshot(p , `${site.uid} ${question} .png`);
-            await p.goto(questionsarray[question].link);
             progress_spinner.update({text:chalk.green(`${question}/${questionsarray.length} : ${questionsarray[question].title} 👉 ${questionsarray[question].link} 👍`)})
-            try {   
-                await p.waitForSelector(".problem-statement",{timeout:7000});
-            } catch (error) {
-                progress_spinner.update({text:chalk.red(`${question}/${questionsarray.length} : ${questionsarray[question].title} 👉 ${questionsarray[question].link} 👎`)})
-                continue; 
-            }
-            let content = await p.evaluate(getQuestionContentDom);
-            content+=`\n\nlink 🔗 ${questionsarray[question].link} 🌟`;
+            let content =`🔗 ${questionsarray[question].link} 🌟`;
             db.store(site.uid,args.languages,questionsarray[question].title,content);
         }
     }

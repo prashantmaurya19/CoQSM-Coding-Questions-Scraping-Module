@@ -2,6 +2,9 @@ import * as url from 'url';
 import { join } from "path";
 /**
  * CONFIGERATIONs
+ * Important Note 🌟
+ * don't change the variable ended by "dir"
+ * you can change Vaiable which are ended by Names
 */
 
 //path config
@@ -19,14 +22,14 @@ export const QUESTIONDIR = join(ROOTDIR,QUESTIONDIR_NAME);
 
 // database config
 export const DB_FILE_NAME = 'record.db';
-export const DB_FOLDER_PATH = 'data';
-export const DB_FILE_PATH = join(ROOTDIR,DB_FOLDER_PATH,DB_FILE_NAME);
+export const DB_FOLDER_NAME = 'data';
+export const DB_FILE_PATH = join(ROOTDIR,DB_FOLDER_NAME,DB_FILE_NAME);
 
 //typo config
 export const FIGLET_FONT = 'doom';
 
 //application config
-export const WELCOME_STRING = 'Welcome';
+export const WELCOME_STRING = 'Welcome to CoQSM ';
 
 
 //testing 🧪

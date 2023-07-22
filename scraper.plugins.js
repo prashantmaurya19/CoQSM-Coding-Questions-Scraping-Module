@@ -7,7 +7,7 @@ import Codeforces from "./src/Websites/Codeforces.js";
 
 export default {
     language:[new CPP(), new Python()],
-    website:[new Codeforces()]
+    website:[new Codeforces()],
 }
 
 

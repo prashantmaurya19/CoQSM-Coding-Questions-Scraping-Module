@@ -8,6 +8,13 @@ import chalk from "chalk";
  * @typedef {string} FigletString
  * @typedef {string} GradientFigletString
  * @typedef {{$0:string,_:[string],languages:string,tags:[string],site:string,no_of_questions:number}} ArgumentsObject
+ * @typedef {Object<string, {
+ *      uid:string,
+ *      EXTENSION:string,
+ *      BOILERPLATE:string,
+ *      MULTI_LINE_COMMENT:[string,string],
+ *      getBody:function():string
+ * }>} LanguageMappingObject
 */
 
 

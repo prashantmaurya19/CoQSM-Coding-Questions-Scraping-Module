@@ -1,5 +1,8 @@
 import plugins from "../../scraper.plugins.js";
 
+/**
+ * @returns {import("./type.js").LanguageMappingObject}
+*/
 function loadPlugings(plugins) {
     let res = {};
     for (const Lang of plugins) {

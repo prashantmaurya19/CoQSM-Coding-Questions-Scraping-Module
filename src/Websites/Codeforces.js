@@ -49,11 +49,14 @@ export default class Codeforces {
     TAG_SEPARATOR = ',';
     URL_SPACE = "+";
     TEMPLATE = `{{commentStart}}
-{{date}}
+🕦 {{date}} 🕥
 
-{{title}}
+💻 {{title}} 💻
 
-{{body}}
+Visit on this Link 👇 for Question 📃
+{{link}}
+
+😏👍
 {{commentEnd}}
 {{code}}
     `;

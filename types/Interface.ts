@@ -1,4 +1,4 @@
-export default interface Website {
+export interface Website {
     uid: string;
     INQUIRER_KEY: string;
     INQUIRER_NAME: string;
@@ -10,4 +10,13 @@ export default interface Website {
     URL_SPACE: string;
     TEMPLATE: string;
     getProblemUrl(...s: string[]): string;
+}
+
+export interface Lang {
+    uid: string;
+    EXTENSION: string;
+    BOILERPLATE: string;
+    MULTI_LINE_COMMENT: [string,string];
+    getBody(): string
+    store(folderpath:string,content:string):void
 }

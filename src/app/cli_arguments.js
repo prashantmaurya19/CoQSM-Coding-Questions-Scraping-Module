@@ -51,7 +51,7 @@ else{
 }
 
 
-createProptList(args, questions, 'languages', /^[a-z]+(\,[a-z]+)+$/g, ',', 'Select Languages :', function () {
+createProptList(args, questions, 'languages', /^[a-z]+(\,[a-z]+)*$/g, ',', 'Select Languages :', function () {
     let choices = [];
     let raw = [];
     for (let lang in LANGUAGES.LANGS) {

@@ -1,8 +1,10 @@
 node_modules/
 .vscode/
-practise/
+practise codeforces/
 *.cmd
 /test/
+*.gitignore
+
 
 
 

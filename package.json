@@ -1,14 +1,16 @@
 {
-  "name": "data-structures-and-algorithms",
+  "name": "coqsm",
   "version": "1.0.0",
-  "description": "",
+  "description": "this module helps you to scrape coding quesition from other websites",
   "type": "module",
-  "main": "index.js",
+  "main": ".\\src\\index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node .\\src\\index.js",
+    "compile":"tsc && npx import-correction",
+    "new-question": "npx create-new-question"
   },
   "keywords": [],
-  "author": "",
+  "author": "Prashant Maurya",
   "license": "ISC",
   "dependencies": {
     "@types/puppeteer": "^7.0.4",
@@ -24,6 +26,7 @@
     "yargs": "^17.7.2"
   },
   "bin": {
-    "import-correction": "./bin/import_correction.js"
+    "import-correction": "./bin/import_correction.js",
+    "create-new-question" : "./bin/create-new-question.js"
   }
 }

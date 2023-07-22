@@ -7,12 +7,27 @@ import { writeFile } from "fs/promises";
 /**
  * @returns {Promise<void>}
 */
-export function saveToTestdir(filename,content) {
-   return writeFile(join(TESTDIR,filename), content,{encoding:"utf-8"});
+export function saveToTestdir(filename, content) {
+    return writeFile(join(TESTDIR, filename), content, { encoding: "utf-8" });
 }
 
 export function pritify(o) {
-    return JSON.stringify(o,null,'  ');
+    return JSON.stringify(o, null, '  ');
+}
+
+/**
+ * remove items from inputtokens array which are not present in the legaltokens array
+ * @param {[string]} inputtokens 
+ * @param {[string]} legaltokens 
+ * @returns {[string]}
+*/
+export function removeInvalidTokens(inputtokens, legaltokens) {
+    let matched = [];
+    for (const s of inputtokens) {
+        if (legaltokens.includes(s.toLowerCase())) matched.push(s);
+        else log.red(`${s} is incorrect`);
+    }
+    return matched;
 }
 
 /**
@@ -25,14 +40,10 @@ export function pritify(o) {
  * @param {string} spliter 
 */
 export function createProptList(args, q, attr, regex, spliter, msg, listfunction) {
-    let [choices,list_of_choices ]= listfunction();
+    let [choices, list_of_choices] = listfunction();
     if (args[attr] != undefined && args[attr].match(regex)) {
         let arg = args[attr].split(spliter);
-        let matched = [];
-        for (const s of arg) {
-            if (list_of_choices.includes(s.toLowerCase())) matched.push(s);
-            else log.red(`${attr} option : ${s} is incorrect`);
-        }
+        const matched = removeInvalidTokens(arg,list_of_choices);
         if (matched.length > 0) {
             args[attr] = matched;
             return;
@@ -59,8 +70,8 @@ export function createProptList(args, q, attr, regex, spliter, msg, listfunction
  * @param {string} name 
  * @returns {Promise<void>}
 */
-export function takeScreenshot(page,name="screenshot.png") {
-    return page.screenshot({path:join(TESTDIR,name),fullPage:true});
+export function takeScreenshot(page, name = "screenshot.png") {
+    return page.screenshot({ path: join(TESTDIR, name), fullPage: true });
 }
 
 
