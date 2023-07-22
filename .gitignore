@@ -2,8 +2,7 @@ node_modules/
 .vscode/
 practise codeforces/
 *.cmd
-test/
-.gitignore
+testing/
 
 
 

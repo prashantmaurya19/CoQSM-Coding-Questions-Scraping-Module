@@ -1,3 +1,4 @@
+//Interfaces
 export interface Website {
     uid: string;
     INQUIRER_KEY: string;
