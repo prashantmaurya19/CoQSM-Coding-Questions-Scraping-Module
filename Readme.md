@@ -41,7 +41,6 @@ scraper.plugins.js
 1. bin Folder\
 as we know npx scripts are present there \
 we use import_correction script to correct the imports\,
-Because by default Typescript does't converts the imports
 so when you compile .ts file then the imports will not work , we see how to use this script FIXME:
 
 2. types Folder\
